@@ -46,7 +46,6 @@ You can also read the tutorial before reading the best practices.
 PREFER to expose your APIs using OCS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Prefer to expose your APIs using OCS instead of other methods.
 It provides a more standardized and easier way to write your APIs.
 Other methods are considered legacy.
 For details take a look at :ref:`OCS <ocscontroller>`.
@@ -77,10 +76,9 @@ For details take a look at :ref:`OCS <ocscontroller>`.
             }
         }
 
-DO type everything as explicit as possible
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+DO type controller and helper methods as explicit as possible
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Type controller and helper methods as explicit as possible.
 The closer you narrow down a type without violating any constraints the better the resulting specification will be.
 Psalm will catch these problems for you if you configured the issue handlers mentioned above correctly.
 
@@ -173,7 +171,7 @@ If you are working with an existing API where you can not break compatibility, y
 DO NOT throw exceptions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Do not throw exceptions and return valid responses with an error message instead.
+Return valid responses with an error message instead.
 
 .. collapse:: Examples
 
@@ -261,10 +259,9 @@ All 2xx responses should return the same data structure and all 4xx should also 
             }
         }
 
-DO NOT use the `addHeader` method
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+DO NOT use the `addHeader` method for setting headers for your responses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Do not use the `addHeader` method for setting headers for your responses.
 Right now it is not possible for psalm to trace headers you set this way, so they will not be validated by psalm.
 Use the `setHeaders` method instead.
 
@@ -353,10 +350,9 @@ You can still use helper methods with generic issue handlers where it makes sens
             }
         }
 
-DO add descriptions everywhere
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+DO set all descriptions for parameters and methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Always set all descriptions for parameters and methods.
 It improves the documentation and makes it easier to understand what your API does.
 
 You can also set descriptions for Controllers.
