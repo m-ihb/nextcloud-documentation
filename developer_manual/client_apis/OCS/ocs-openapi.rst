@@ -661,15 +661,16 @@ How to ignore certain endpoints
 -------------------------------
 
 The tool already ignores all the endpoints that are not reachable from the outside, but some apps have reachable endpoints that are not APIs (e.g. serving some HTML).
-To ignore those you can add the `@IgnoreAPI` annotation to the controller method:
+To ignore those you can add the `#[IgnoreOpenAPI]` attribute or if you still support PHP 7 the `@IgnoreOpenAPI` annotation to the controller method or the controller class:
 
 .. code-block:: php
 
     /**
      * ...
      *
-     * @IgnoreAPI
+     * @IgnoreOpenAPI
      */
+    #[IgnoreOpenAPI]
     #[NoAdminRequired]
     public function show(): TemplateResponse {
         ...
