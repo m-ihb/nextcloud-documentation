@@ -37,6 +37,19 @@ Setup the following issue handlers in the psalm config (see `<https://psalm.dev/
 
 Install openapi-extractor in your app as explained in `<https://github.com/nextcloud/openapi-extractor>`_. TODO add instructions there
 
+Tips and tricks
+---------------
+
+The openapi-extractor tool forces you to set descriptions everywhere.
+To ease the porting process you can set the `--allow-missing-docs` flag to ignore those problems.
+
+The tool also only shows errors one by one by default, but you can also let it show you all problems at once using the `--continue-on-error`.
+
+It is advised to use neither of the mentioned flags to generate the final specification.
+They hide problems that your code has.
+Especially the later one is dangerous because it will never fail when any problem exists in your code.
+They should only be used to speed up the initial porting process.
+
 Best practices
 --------------
 
